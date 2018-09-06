@@ -92,12 +92,7 @@ export class AddproductComponent implements OnInit {
       // product.product_quantity = this.form.get('product_quantity').value;
       // product.product_delivery = this.form.get('product_delivery').value;
       // console.error(JSON.stringify(this.form.value));
-      this.productService.addProduct(this.form.value).subscribe(res => {
-        console.log(res);
-        const message = 'Product ' + res + ' successfully.';
-        this.openSnackBar(message, 'X');
-       // this.router.navigateByUrl('/products');
-      });
+      this.productService.addProduct(this.form.value);
       // console.log(JSON.stringify(this.form.value)); // {7}
       /* const message = 'Product added successfully.';
       this.openSnackBar(message, 'X'); */

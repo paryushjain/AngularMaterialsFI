@@ -28,13 +28,18 @@ export class ProductsService {
 
  
 
-  addProduct(product: Product): Observable<Product> {
-    console.error(product);
-    return this.http.post<Product>(
-      environment.serverUrl + '/addproduct',
-      JSON.stringify({ product}),
-      { headers: this.headers }
-    );
+  addProduct(product) {
+    console.log(product);
+
+     this.http.post(
+      environment.clientUrl + '/addProduct',
+      product).subscribe((response: any) => {
+        
+        //  sessionStorage.setItem('user', JSON.stringify(response));
+          //this.router.navigate(['/dashboard']);
+        
+        // alert(JSON.stringify(response));
+      });
   }
 
   

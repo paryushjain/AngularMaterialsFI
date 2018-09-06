@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  clientUrl: 'http://localhost:3000',
+  clientUrl: 'http://localhost:8089',
   clientUrl1: 'http://localhost:3001',
   serverUrl: 'http://ussltcsnw2627.solutions.glbsnet.com:5003'
 };
