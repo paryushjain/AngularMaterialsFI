@@ -7,22 +7,25 @@
 
 
         <mat-form-field class="full-width-input">
-            <mat-select placeholder="Product Name" formControlName="product_name" (selectionChange)="somethingChanged($event.value)" required>
-              <mat-option *ngFor="let product of productList"  [value]="product.product_id" >
-                {{product.product_name}}
-              </mat-option>
-            </mat-select>
+          <input matInput placeholder="Product Name" formControlName="product_name" required>
+          <mat-error *ngIf="isFieldInvalid('product_name')">
+              Please provide valid product name
+            </mat-error>
           </mat-form-field>
 
         <mat-form-field class="full-width-input">
           <input matInput placeholder="Product Type" formControlName="product_type" required>
           <!-- <mat-icon matSuffix>lock</mat-icon> -->
-
+          <mat-error *ngIf="isFieldInvalid('product_type')">
+              Please provide valid product type
+            </mat-error>
         </mat-form-field>
         <mat-form-field class="full-width-input">
           <input matInput placeholder="Description" formControlName="product_description" required>
           <!-- <mat-icon matSuffix>lock</mat-icon> -->
-
+          <mat-error *ngIf="isFieldInvalid('product_description')">
+              Please provide valid product description
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width-input">
@@ -41,13 +44,15 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="full-width-input">
-          <input type="text" matInput placeholder="Delivery Within" formControlName="product_delivery" required>
-          <!-- <mat-icon matSuffix>lock</mat-icon> -->
-          <mat-error *ngIf="isFieldInvalid('product_delivery')">
-            Please provide delivery time
-          </mat-error>
-        </mat-form-field>
+        
+        <section class="example-section">
+            <label>Payment Mode : &nbsp;</label>
+            <mat-radio-group class="example-radio-group" formControlName="payment_mode">
+            <mat-radio-button class="example-radio-button" value="COD">COD</mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="Online">Online</mat-radio-button>
+            </mat-radio-group>
+          </section>
+        
         <button mat-raised-button color="primary"><mat-icon>add_box</mat-icon>&nbsp;&nbsp;Add Product</button>
       </form>
     </mat-card-content>

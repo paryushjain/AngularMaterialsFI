@@ -29,7 +29,14 @@ export class AddproductComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       // {5}
-      product_name: ['', Validators.required],
+      product_name: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Za-z]).{2,}$'),
+          Validators.maxLength(20)
+        ])
+      ],
       product_description: ['', Validators.required],
       product_price: [
         '',
@@ -49,19 +56,11 @@ export class AddproductComponent implements OnInit {
           Validators.min(0)
         ])
       ],
-      product_delivery: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern('^[0-9]*$'),
-          Validators.max(99999),
-          Validators.min(0)
-        ])
-      ],
+      payment_mode: ['', Validators.required],
       product_type: ['', Validators.required]
     });
-    this.form.controls['product_description'].disable();
-    this.form.controls['product_type'].disable();
+   // this.form.controls['product_description'].disable();
+   // this.form.controls['product_type'].disable();
     this.productService.getProductTypesList().subscribe(data => {
       // console.log(data);
       this.productList = data;

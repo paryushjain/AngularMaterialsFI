@@ -12,3 +12,23 @@ mat-card {
   ::ng-deep snack-bar-container.snack-bar-color {
     background: green;
   }
+  .example-radio-group {
+    display: inline-flex;
+    flex-direction: row;
+  }
+  .example-radio-button {
+    margin: 5px;
+  }
+  
+  .example-selected-value {
+    margin: 15px 0;
+  }
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: slateblue;
+  }
+  ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: slateblue;
+  }
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: slateblue;
+  }
