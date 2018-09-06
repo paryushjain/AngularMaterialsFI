@@ -77,26 +77,26 @@ export class AddproductComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      const product: Product = new Product();
-      const data = this.form.get('product_name').value;
-      for (const p in this.productList) {
-        if (this.productList[p]['product_id'] === data) {
-          product.product_id = this.productList[p].product_id;
-          product.product_name = this.productList[p].product_name;
-          product.product_description = this.productList[p].product_description;
-          product.product_type = this.productList[p].product_type;
-        }
-      }
-      product.product_price = this.form.get('product_price').value;
+      // const product: Product = new Product();
+      // const data = this.form.get('product_name').value;
+      // for (const p in this.productList) {
+      //   if (this.productList[p]['product_id'] === data) {
+      //     product.product_id = this.productList[p].product_id;
+      //     product.product_name = this.productList[p].product_name;
+      //     product.product_description = this.productList[p].product_description;
+      //     product.product_type = this.productList[p].product_type;
+      //   }
+      // }
+      // product.product_price = this.form.get('product_price').value;
 
-      product.product_quantity = this.form.get('product_quantity').value;
-      product.product_delivery = this.form.get('product_delivery').value;
-      console.error(JSON.stringify(this.form.value));
-      this.productService.addProduct(product).subscribe(res => {
+      // product.product_quantity = this.form.get('product_quantity').value;
+      // product.product_delivery = this.form.get('product_delivery').value;
+      // console.error(JSON.stringify(this.form.value));
+      this.productService.addProduct(this.form.value).subscribe(res => {
         console.log(res);
         const message = 'Product ' + res + ' successfully.';
         this.openSnackBar(message, 'X');
-        this.router.navigateByUrl('/products');
+       // this.router.navigateByUrl('/products');
       });
       // console.log(JSON.stringify(this.form.value)); // {7}
       /* const message = 'Product added successfully.';
