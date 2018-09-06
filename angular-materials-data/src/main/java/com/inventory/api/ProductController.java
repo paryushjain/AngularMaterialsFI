@@ -3,6 +3,7 @@ package com.inventory.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,25 +23,28 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/getProducts", method = RequestMethod.GET)
 	public List<Product> retrieveProducts() {
 		return productService.getAllProducts();
 		
 	}
 	
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/getProduct/{id}", method = RequestMethod.GET)
 	public Product getProduct(@PathVariable Integer id) {
 		return (Product)productService.getProduct(id);
 		
 	}
 	
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
     public void saveProduct(@RequestBody Product product) {
 		productService.saveProduct(product);
   
     }
 	
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/addProduct/{id}", method = RequestMethod.PUT)
     public void updateProduct(@RequestBody Product product, @PathVariable String id) {
 		//productService.updateProduct(id, product);
