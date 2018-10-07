@@ -22,12 +22,8 @@ export class ProductsService {
     this.favproductCart = [];
   }
   getProductTypesList(): any {
-    return this.http.get<Product[]>('http://localhost:3000/productList');
+    return this.http.get<Product[]>(environment.clientUrl + '/getProducts');
   }
-  
-
- 
-
   addProduct(product) {
     console.log(product);
 

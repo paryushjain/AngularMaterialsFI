@@ -1,3 +1,4 @@
+import { ShowproductComponent } from './components/showproduct/showproduct.component';
 import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -37,6 +38,10 @@ const appRoutes: Routes = [
   {
     path: 'addproduct',
     component: AddproductComponent
+  },
+  {
+    path: 'showproduct',
+    component: ShowproductComponent
   }
 
 ];
@@ -46,6 +51,7 @@ const appRoutes: Routes = [
     AppComponent,
     
     AddproductComponent,
+    ShowproductComponent
     
   ],
   entryComponents: [
